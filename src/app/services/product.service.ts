@@ -22,7 +22,7 @@ export class ProductService {
 
 
   listProducts(){
-    return this.http.get<Info>(`${environment.productUrl}`);
+    return this.http.get<Info []>(`${environment.productUrl}`);
 //    simulation liste local
 //    return this.http.get<Info>(`${"assets/info.json"}`);
   }

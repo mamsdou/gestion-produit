@@ -14,7 +14,7 @@ import {Info} from "../info";
 export class DisplayProduitComponent implements OnInit {
 
   @ViewChild("relance") relanceEl!: ElementRef;
-  infos: any;
+  infos: Info[] | undefined;
 
   constructor(private http: HttpClient, public service: ProductService) {
   }
