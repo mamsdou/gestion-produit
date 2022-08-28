@@ -1,11 +1,15 @@
 # GestionProduit
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+Correction du merge request
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Points soulignés
 
+- externalisation des traitements sous forme de services
+- creation d'un fichier pour les urls pour les rendre dynnamique
+- création d'un fichier json qui se situe dans le dossier assets/info.json
+- externnalisation de l'interface Info 
+- ajout des propriétés dans l'interface: commentaires, couleur et materiaux 
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

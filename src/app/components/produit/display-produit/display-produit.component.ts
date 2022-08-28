@@ -21,7 +21,6 @@ export class DisplayProduitComponent implements OnInit {
 
   ngOnInit(): void {
   this.listProducts();
-  this.listLocal();
   }
 
   listProducts(){
@@ -29,13 +28,6 @@ export class DisplayProduitComponent implements OnInit {
       (info) => (
         this.infos = info)
     )
-  }
-
-  listLocal(){
-    this.http.get("assets/info.json").subscribe(data =>{
-      console.log("daaaaatttaa",data);
-      //this.products = data;
-    })
   }
 
   @HostListener("mouseenter") mouseenter() {
@@ -46,28 +38,23 @@ export class DisplayProduitComponent implements OnInit {
     this.relanceEl.nativeElement.style.backgroundColor = "transparent";
   }
 
-  // @HostListener('mouseexit') mouseexit() {
-  //     if(this.relanceEl) {
-  //         this.relanceEl.nativeElement.style.backgroundColor = 'yellow';
-  //     }
-  // }
 
   infoOfQuantite(quantite: number, product: string){
     return this.service.getInfoOfQuantite(quantite, product);
   }
 
   command(info: Info) {
-    this.http.post(environment.envoyerCommandeUrl, info);
+    return this.service.commander(info);
   }
 
   cancel(info: Info) {
-    this.http.post(environment.annulerCommandeUrl, info);
+    return this.service.annuler(info);
   }
 
   // permet de faire une relance
-  rev(info: Info) {
+  relancer(info: Info) {
     this.actionDeVerification();
-    this.http.post(environment.relancerCommandeUrl, info);
+    return this.service.relancer(info);
   }
 
   public actionDeVerification() {

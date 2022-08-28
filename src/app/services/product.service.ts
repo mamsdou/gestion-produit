@@ -23,16 +23,20 @@ export class ProductService {
 
   listProducts(){
     return this.http.get<Info>(`${environment.productUrl}`);
-
+//    simulation liste local
+//    return this.http.get<Info>(`${"assets/info.json"}`);
   }
 
-  commander(){
-
+  commander(info: Info){
+  return this.http.post<Info>(`${environment.envoyerCommandeUrl}`, info)
   }
 
-  annuler(){}
-
-  relancer(){
-
+  annuler(info: Info){
+    return this.http.post<Info>(`${environment.annulerCommandeUrl}`, info)
   }
+
+  relancer(info: Info){
+    return this.http.post<Info>(`${environment.relancerCommandeUrl}`, info)
+
+}
 }
